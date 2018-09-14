@@ -1,0 +1,509 @@
+* {
+	box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+	overflow: scroll;
+}
+
+/* Header/logo Title */
+.header {
+	padding: 20px;
+	text-align: center;
+	background-image: url("../background/15.jpg");
+	color: white;
+	display: block;
+}
+
+/* Increase the font size of the heading */
+.header h1 {
+	font-size: 40px;
+}
+
+/* #navbar {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    display:block;
+    transition: top 0.3s;
+    overflow: hidden;
+  } */
+
+/* Style the top navigation bar */
+.navbarmain {
+	overflow: hidden;
+	background-color: #333;
+}
+
+.navbar {
+	overflow: hidden;
+	background-color: #333;
+	margin-left: 25%;
+}
+
+.navbar a {
+	float: left;
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 26px;
+	text-decoration: none;
+	height: 45px;
+}
+/* Style the navigation bar links */
+.navbar a.left {
+	padding: 14px 20px;
+	width: 20%;
+	max-width: 300px;
+	min-width: 200px;
+	text-decoration: none;
+}
+/* Right-aligned link */
+.navbar a.right {
+	float: right;
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 20px;
+	text-decoration: none;
+}
+
+.navbar a.rightactive {
+	float: right;
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 20px;
+	text-decoration: none;
+	background-color: #ddd;
+}
+
+.navbar button.right {
+	float: right;
+	display: block;
+	color: white;
+	background-color: #333;
+	border: none;
+	text-align: center;
+	padding: 14px 20px;
+	text-decoration: none;
+	height: 45px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+/* Change color on hover */
+.navbar a:hover, a.active, button.right:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+/* Column container */
+.row {
+	display: -ms-flexbox; /* IE10 */
+	display: flex;
+	-ms-flex-wrap: wrap; /* IE10 */
+	flex-wrap: wrap;
+	width: 100%;
+	height: 100%;
+	/* overflow: auto; */
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+	-ms-flex: 30%; /* IE10 */
+	flex: 30%;
+	background-color: #f1f1f1;
+	padding: 20px;
+}
+
+/* Main column */
+.main {
+	width: 80%;
+	max-width: 1700px;
+	padding: 20px;
+}
+
+/* Fake image, just for this example */
+.fakeimg {
+	background-color: #aaa;
+	width: 100%;
+	height: 100%;
+	padding: 20px;
+}
+
+/* Footer */
+.footer {
+	padding: 5px;
+	text-align: center;
+	background: #ddd;
+	position: fixed;
+	overflow: hidden;
+	bottom: 0;
+	width: 100%;
+	height: 30px;
+}
+
+.footer a {
+	color: black;
+	text-decoration-line: none;
+	margin: 0;
+}
+
+.footer a:hover {
+	text-decoration-line: underline;
+}
+
+.footer a:visited {
+	color: rgb(97, 6, 124);
+	text-decoration-line: underline;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+	.row {
+		flex-direction: column;
+	}
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+
+/* �꽭濡쒕떒異� 洹몃９�뿉 �궗�슜  */
+.vertical-menu {
+	width: 20%;
+	max-width: 300px;
+	min-width: 200px;
+	background-color: #eee;
+}
+
+.vertical-menu a {
+	background-color: #eee;
+	color: black;
+	display: inline-block;
+	width: 100%;
+	padding: 12px;
+	height: 80px;
+	text-align: center;
+	line-height: 60px;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.vertical-menu a:hover {
+	background-color: #ccc;
+}
+
+.vertical-menu a.bottom:hover {
+	background-color: #eee;
+}
+
+.vertical-menu a.active {
+	background-color: rgb(69, 75, 69);
+	color: white;
+}
+
+div.complete {
+	padding : 2px;
+	width: 20%;
+	display: inline-block;
+}
+
+div.complete2 {
+	padding: 2px;
+	width: 75%;
+	display: inline-block;
+	
+}
+
+/* �씠誘몄� 媛ㅻ윭由ъ뿉 �벝 �떆�듃 */
+img {
+	vertical-align: middle;
+}
+/* 硫붿씤 �씠誘몄��뿉 �궗�슜 */
+img.mainimg {
+	width: 100%;
+	height: auto;
+	max-height: 550px;
+}
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+	position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+	display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+	cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+	cursor: pointer;
+	position: absolute;
+	top: 40%;
+	width: auto;
+	padding: 16px;
+	margin-top: -50px;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+	-webkit-user-select: none;
+}
+/* Position the "next button" to the right */
+.next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+	color: #f2f2f2;
+	font-size: 12px;
+	padding: 8px 12px;
+	position: absolute;
+	top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+	text-align: center;
+	background-color: #222;
+	padding: 2px 16px;
+	color: white;
+}
+
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Six columns side by side */
+.column {
+	float: left;
+	width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+	opacity: 0.6;
+}
+
+.active, .demo:hover {
+	opacity: 1;
+}
+
+/* �궡鍮꾨컮�뿉 �궗�슜�븷 �떆�듃 */
+.navbar .icon {
+	display: none;
+}
+
+@media screen and (max-width: 900px) {
+	.navbar	a:not(:first-child) {
+		display: none;
+	}
+	.navbar a.icon {
+		float: right;
+		display: block;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.navbar.responsive {
+		position: relative;
+	}
+	.navbar.responsive .icon {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	.navbar.responsive a {
+		float: none;
+		display: block;
+		text-align: left;
+	}
+}
+
+/* �븘�뵒鍮꾨쾲�뤌 */
+/* Full-width input fields */
+input[type=text], input[type=password] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+form button {
+	background-color: #333;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+}
+
+form button:hover {
+	opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+	width: auto;
+	padding: 10px 18px;
+	background-color: darkred;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+	text-align: center;
+	margin: 24px 0 12px 0;
+	position: relative;
+}
+
+img.avatar {
+	width: 40%;
+	border-radius: 50%;
+}
+
+.container {
+	padding: 16px;
+}
+
+.container div.label {
+	width: 20%;
+	float: left;
+	padding: 14px;
+}
+
+.container input[type="text"], input[type="password"], select {
+	height: 35px;
+	width: 75%;
+	float: left;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+.container div.check {
+	padding: 5px;
+	height: 35px;
+	width: 75%;
+	float: left;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px;
+	box-sizing: border-box;
+}
+
+.container div.check input {
+	/* 	margin: 3px 0.5ex; */
+	margin: 9px 9px 9px 9px;
+}
+
+span.psw {
+	float: right;
+	padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0, 0, 0); /* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+	padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+	background-color: #fefefe;
+	margin: 5% auto 15% auto;
+	/* 5% from the top, 15% from the bottom and centered */
+	border: 1px solid #888;
+	width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+	/*     position: absolute; */
+	right: 25px;
+	top: 0;
+	color: #000;
+	font-size: 35px;
+	font-weight: bold;
+	padding-right: 10px;
+	float: right;
+}
+
+.close:hover, .close:focus {
+	color: red;
+	cursor: pointer;
+	padding-right: 10px;
+}
+
+/* Add Zoom Animation */
+.animate {
+	-webkit-animation: animatezoom 0.6s;
+	animation: animatezoom 0.6s;
+	max-width: 40%;
+	padding-top: 1%;
+}
+
+@
+-webkit-keyframes animatezoom {
+	from {-webkit-transform: scale(0)
+}
+
+to {
+	-webkit-transform: scale(1)
+}
+
+}
+@
+keyframes animatezoom {
+	from {transform: scale(0)
+}
+
+to {
+	transform: scale(1)
+}
+
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+	span.psw {
+		display: block;
+		float: none;
+	}
+	.cancelbtn {
+		width: 100%;
+	}
+}
