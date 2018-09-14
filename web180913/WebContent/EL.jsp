@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<jsp:useBean id="info" class="member.MemberInfo" scope="request"/>
-
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<%  request.setAttribute("memberInfo", memberInfo); %>
+	<jsp:include page=“ <%= includePage%>” flush=“false” />
 </body>
 </html>
