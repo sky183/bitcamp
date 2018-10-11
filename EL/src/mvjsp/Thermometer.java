@@ -23,6 +23,6 @@ public class Thermometer {
 	}
 	
 	public String getInfo() {
-		return "¿Âµµ°è º¯È¯±â 1.1";
+		return "ì˜¨ë„ê³„ë³€í™˜ê¸° 1.1";
 	}
 } 
