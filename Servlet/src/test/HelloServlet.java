@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = "/hello", initParams = { @WebInitParam(name = "name", value = "바보")})
-//두개 이상의 url패턴을 처리할 경우
+@WebServlet(urlPatterns = "/hello", initParams = { @WebInitParam(name = "name", value = "안녕하세요.")})
+//두개 이상의 URL 패턴을 처리 할 경우
 //@WebServlet(urlPatterns = { "/hello", "/hello2" })
 public class HelloServlet extends HttpServlet {
 

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="mvjsp.Thermometer"%>
+<%-- <%@ page import="mvjsp.Thermometer"%> --%>
 <jsp:useBean id="t" scope="request" class="mvjsp.Thermometer"></jsp:useBean>
 <!-- 빈을 사용하거나 아래와 같이 자바 코드로 객체 생성해서 사용해도 됨 -->
 <%-- <%

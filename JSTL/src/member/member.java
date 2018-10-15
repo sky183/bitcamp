@@ -4,6 +4,11 @@ public class member {
 	String name;
 	String email;
 	
+	public member() {
+		this.name = "";
+		this.email = "";
+	}
+	
 	public member(String name, String email){
 		this.name = name;
 		this.email = email;

@@ -15,7 +15,8 @@ public class JdbcTest9 {
 		UserDao udao = UserDao.getInstance();
 
 		
-		  List<User> list = udao.selectAllUsers(); System.out.println(list);
+		  List<User> list = udao.selectAllUsers(); 
+		  System.out.println(list);
 		 
 
 		User u = new User("sky18sdf3","sdfsdf", "sdsdfsdf", "sdsdfsdf", "sdsdfsdf", "sdsdfsdf", "sdsdfsdf", "sdsdfsdf", "sdsdfsdf", "sdsdfsdf");
