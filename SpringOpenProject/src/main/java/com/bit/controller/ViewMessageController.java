@@ -7,30 +7,29 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bit.model.Message;
-import com.bit.service.ViewService;
+import com.bit.service.ViewMessageService;
 
 @Controller
-public class View {
+public class ViewMessageController {
 
 	@Autowired
-	private ViewService service;
+	private ViewMessageService service;
 
 	@RequestMapping("/view/{id}")
 	public String getView(@PathVariable("id") int id, Model model) {
-		
-		model.addAttribute("id",id);
-			
-			Message message;
-			
-			try {
-				message = service.getMessage(id);
-				model.addAttribute("message", message);
-			} catch (Exception e) {
-				
-			}
-					
-			
-			return "guestbook/view";
+
+		/*model.addAttribute("message_Id", id);*/
+
+		Message message;
+
+		try {
+			message = service.getMessage(id);
+			model.addAttribute("message", message);
+		} catch (Exception e) {
+
 		}
+
+		return "guestbook/view";
+	}
 
 }

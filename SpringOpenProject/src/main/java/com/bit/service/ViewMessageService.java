@@ -9,7 +9,7 @@ import com.bit.dao.MessageDao;
 import com.bit.model.Message;
 
 @Repository
-public class ViewService {
+public class ViewMessageService {
 
 	@Autowired
 	SqlSessionTemplate sessionTemplate;

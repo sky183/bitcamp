@@ -34,7 +34,7 @@
 	</update>
 
 	<delete id="delete" parameterType="int">
-
+	delete from guestbook_message where message_id = #{message_id}
 	</delete>
 
 

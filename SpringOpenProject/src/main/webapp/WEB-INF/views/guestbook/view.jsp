@@ -13,9 +13,9 @@
 	<h1>${id}</h1>
 	<table border="1">
 		<tr>
-			<td>메시지 번호: ${message.id} <br /> 손님 이름: ${message.guestName} <br />
+			<td>메시지 번호: ${message.message_Id} <br /> 손님 이름: ${message.guest_Name} <br />
 				메시지: ${message.message} <br /> <a
-				href="<%=request.getContextPath()%>/deleteMessage?messageId=${message.id}"> [삭제하기]</a> <a
+				href="<%=request.getContextPath()%>/deleteMessage?messageId=${message.message_Id}"> [삭제하기]</a> <a
 				href="<%=request.getContextPath()%>/list">돌아가기</a>
 			</td>
 		</tr>
