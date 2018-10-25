@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bit.dao.MemberInfoDao">
+
+	<!-- parameterTyape은 매개변수 타입, keyProperty는 mysql의 autoincreament 값을 받아온다. -->
+	<insert id="insert"
+		parameterType="com.bit.model.MemberInfo" useGeneratedKeys="true"
+		keyProperty="idx">
+		insert into member (userid, password, username, userphoto) 
+		values (#{userId}, #{password},	#{userName}, #{userPhoto})
+	</insert>
+
+	<select id="selectById" resultType="com.bit.model.MemberInfo">
+		select * from member where	userid = #{id}
+	</select>
+
+	<select id="selectAll" resultType="com.bit.model.MemberInfo">
+		select * from member
+	</select>
+	
+	<update id="update" parameterType="com.bit.model.MemberInfo">
+		update member set password=#{password}, username=#{userName}, userphoto=#{userPhoto} where userid=#{userId}
+	</update>
+	
+	<delete id="delete" parameterType="String">
+		delete from member where userid = #{userId}
+	</delete>
+
+
+</mapper> 

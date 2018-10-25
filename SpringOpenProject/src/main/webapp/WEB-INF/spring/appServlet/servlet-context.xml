@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans
+	xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing 
+		infrastructure -->
+
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+
+	<!-- 경로 맵핑 -->
+	<resources mapping="/resources/**" location="/resources/" />
+	<resources mapping="/css/**" location="/css/" />
+	<resources mapping="/uploadfile/**" location="/uploadfile/" />
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
+		in the /WEB-INF/views directory -->
+	<beans:bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+
+	<context:component-scan base-package="com.bit.*" />
+
+	<!-- DAO 빈 등록 -->
+	<!-- <beans:bean id="messageDao" class="com.bit.dao.MessageDao"></beans:bean> -->
+
+
+	<!-- 빈 등록 모음 -->
+
+	<!-- 데이터 소스 -->
+	<beans:bean id="dataSource"
+		class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<!-- <beans:property name="driverClass"
+			value="oracle.jdbc.driver.OracleDriver" /> -->
+		<beans:property name="driverClass" value="com.mysql.jdbc.Driver" />
+	<!-- 	<beans:property name="jdbcUrl"
+			value="jdbc:oracle:thin:@Localhost:1522:orcl" /> -->
+		<beans:property name="jdbcUrl" value="jdbc:mysql://localhost/openproject?characterEncoding=utf8"/>
+		<beans:property name="user" value="scott" />
+		<beans:property name="password" value="tiger" />
+	</beans:bean>
+
+	<beans:bean id="jdbcTemplate"
+		class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="dataSource" />
+
+	<!-- 파일업로드 처리를 위한 multipartResolver bean 등록 -->
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="defaultEncoding">
+			<beans:value>utf-8</beans:value>
+		</beans:property>
+	</beans:bean>
+
+	<!-- spring - my-batis 연동 설정 -->
+	<beans:bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource" />
+		<beans:property name="mapperLocations"
+			value="classpath:com/bit/mapper/mybatis/*.xml" />
+	</beans:bean>
+
+	<beans:bean id="sqlSession"
+		class="org.mybatis.spring.SqlSessionTemplate">
+		<beans:constructor-arg index="0"
+			ref="sqlSessionFactory" />
+	</beans:bean>
+
+
+	<!-- MyBatis 트랜젝션 처리 시작 -->
+
+	<beans:bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<beans:property name="dataSource">
+			<beans:ref bean="dataSource" />
+		</beans:property>
+	</beans:bean>
+	<!-- @Transactional 애노테이션 활성화 설정 -->
+	<tx:annotation-driven
+		transaction-manager="transactionManager" />
+	<!-- 트랜젝션 처리 끝 -->
+
+
+
+
+
+
+	<!-- 인터셉터 이용한 로그인 체크 --> <!-- 여러 핸들러인터셉터를 생정 -->
+	<interceptors>
+		<!-- 한개의 핸들러인터셉터를 생성 -->
+		<interceptor>
+			<!-- 핸들러인터셉터를 적용할 경로 설정 -->
+			<mapping path="/member**" />
+			<mapping path="/myPage" />
+			<!-- <mapping path="/list" /> -->
+			<mapping path="/guestbook/**" />
+			<mapping path="/deleteMessage" />
+			<mapping path="/writeMessage" />
+			<mapping path="/view/**" />
+			<!-- 경로중 일부 경로를 제외하고 싶을 때 -->
+			<exclude-mapping path="/member/login" />
+			<exclude-mapping path="/member/logout" />
+			<!-- <exclude-mapping path="/memberList"/> -->
+			<beans:bean
+				class="com.bit.interceptor.AuthCheckInterceptor" />
+		</interceptor>
+		<interceptor>
+			<!-- 핸들러인터셉터를 적용할 경로 설정 -->
+			<mapping path="/memberDelete/**" />
+			<!-- <mapping path="/memberList" /> -->
+			<!-- <exclude-mapping path="/memberList"/> -->
+			<beans:bean
+				class="com.bit.interceptor.MemberDeleteInterceptor" />
+		</interceptor>
+	</interceptors>
+
+
+
+</beans:beans>
