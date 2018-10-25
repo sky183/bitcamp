@@ -16,11 +16,12 @@
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
 	<form action="writeMessage" method="post">
 		<!-- 이름:  -->
-		<input type="hidden" name="guestName" value="${memberInfo.userId}" />
+		<input type="hidden" name="guest_Name" value="${memberInfo.userId}" />
 		<!-- 암호:  -->
-		<input type="hidden" name="password" value="1" /> <br /> 
-		 <h1 style="margin-left: 15px;">메세지</h1> 
-		<textarea name="message" cols="30" row="3" style="height: 100px; margin: 15px;"></textarea>
+		<input type="hidden" name="password" value="1" /> <br />
+		<h1 style="margin-left: 15px;">메세지</h1>
+		<textarea name="message" cols="30" row="3"
+			style="height: 100px; margin: 15px;"></textarea>
 		<br /> <input type="submit" value="메시지 남기기" />
 	</form>
 
@@ -32,41 +33,29 @@
 		</c:when>
 		<c:otherwise>
 			<table border="1">
-			<tr>
-			<td>
-			게시번호
-			</td>
-			<td>
-			내용
-			</td>
-			<td>
-			작성자
-			</td>
-			</tr>
+				<tr>
+					<td>게시번호</td>
+					<td>내용</td>
+					<td>작성자</td>
+				</tr>
 				<c:forEach var="message" items="${viewData.messageList}">
 					<tr>
-					<td>
-					<a href="<%=request.getContextPath()%>/view/${message.id}">${message.id}</a>
-					
-<%-- 						<td>메시지 번호: ${message.id} <br /> 손님 이름: ${message.guestName}
-							<br /> 메시지: ${message.message} <br /> <a
-							href="<%=request.getContextPath()%>/deleteMessage?messageId=${message.id}">
-								[삭제하기]</a> <a
-							href="<%=request.getContextPath()%>/view/${message.id}">상세보기</a> --%>
+						<td><a
+							href="<%=request.getContextPath()%>/view/${message.message_Id}">${message.message_Id}</a>
+
 						</td>
-						<td>
-						<a href="<%=request.getContextPath()%>/view/${message.id}">${message.message}</a>
+						<td><a
+							href="<%=request.getContextPath()%>/view/${message.message_Id}">${message.message}</a>
 						</td>
-						<td>
-						<c:choose>
-						<c:when test="${memberInfo.userId.equals(message.guestName)}">
-						<a href="<%=request.getContextPath()%>/memberModify/${message.guestName}">${message.guestName}</a>
-						</c:when>
-						<c:otherwise>
-						${message.guestName}
+						<td><c:choose>
+								<c:when test="${memberInfo.userId.equals(message.guest_Name)}">
+									<a
+										href="<%=request.getContextPath()%>/memberModify/${message.guest_Name}">${message.guest_Name}</a>
+								</c:when>
+								<c:otherwise>
+						${message.guest_Name}
 						</c:otherwise>
-						</c:choose>
-						</td>
+							</c:choose></td>
 					</tr>
 				</c:forEach>
 			</table>

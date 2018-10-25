@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bit.dao.MessageDao;
-import com.bit.exception.ServiceException;
 import com.bit.model.Message;
 
 @Repository
@@ -18,11 +17,16 @@ public class WriteMessageService {
 	private MessageDao messageDao;
 
 	@Transactional
-	public void write(Message message) {
+	public void write(Message message) throws Exception {
 
 		messageDao = sessionTemplate.getMapper(MessageDao.class);
 		
-		messageDao.insert(message);
+		if (message.getMessage() != null && !message.getMessage().equals("")) {
+			messageDao.insert(message);
+		} else {
+			throw new Exception();
+		}
+		
 
 	}
 

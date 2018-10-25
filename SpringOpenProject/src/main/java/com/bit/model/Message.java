@@ -2,25 +2,35 @@ package com.bit.model;
 
 
 public class Message {
-	private int id;
-	private String guestName;
+	private int message_Id;
+	private String guest_Name;
 	private String password;
 	private String message;
 
-	public int getId() {
-		return id;
+	
+	
+	public boolean matchPassword(String pw) {		
+		return password.equals(pw);
+	}
+	
+	public boolean hasPassword() {
+		return password != null && !password.isEmpty();
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public int getMessage_Id() {
+		return message_Id;
 	}
 
-	public String getGuestName() {
-		return guestName;
+	public void setMessage_Id(int message_Id) {
+		this.message_Id = message_Id;
 	}
 
-	public void setGuestName(String guestName) {
-		this.guestName = guestName;
+	public String getGuest_Name() {
+		return guest_Name;
+	}
+
+	public void setGuest_Name(String guest_Name) {
+		this.guest_Name = guest_Name;
 	}
 
 	public String getPassword() {
@@ -41,16 +51,8 @@ public class Message {
 
 	@Override
 	public String toString() {
-		return "Message [id=" + id + ", guestName=" + guestName + ", password=" + password + ", message=" + message
-				+ "]";
-	}
-	
-	public boolean matchPassword(String pw) {		
-		return password.equals(pw);
-	}
-	
-	public boolean hasPassword() {
-		return password != null && !password.isEmpty();
+		return "Message [message_Id=" + message_Id + ", guest_Name=" + guest_Name + ", password=" + password
+				+ ", message=" + message + "]";
 	}
 	
 	

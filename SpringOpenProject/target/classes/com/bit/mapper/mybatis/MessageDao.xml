@@ -8,7 +8,7 @@
 		insert into guestbook_message
 		(guest_name, password, message)
 		values
-		(#{guestName}, #{password},
+		(#{guest_Name}, #{password},
 		#{message})
 	</insert>
 
@@ -19,13 +19,13 @@
 
 	<select id="selectList" resultType="com.bit.model.Message">
 		select * from
-		guestbook_message order by message_id desc limit #{firstRow},
-		#{endRow}
+		guestbook_message order by message_id desc limit #{param1},
+		#{param2}
 	</select>
 
 	<select id="select" resultType="com.bit.model.Message">
 		select * from guestbook_message
-		where message_id = #{messageId}
+		where message_id = #{message_Id}
 	</select>
 
 	<update id="update" parameterType="com.bit.model.Message">

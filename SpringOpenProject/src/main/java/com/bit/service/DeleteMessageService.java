@@ -30,7 +30,7 @@ public class DeleteMessageService {
 		if (message == null) {
 			throw new MessageNotFoundException("메시지가 없습니다:" + messageId);
 		}
-		if (!(message.getGuestName().equals(userName) || userName.equals("sky18333@naver.com"))) {
+		if (!(message.getGuest_Name().equals(userName) || userName.equals("sky18333@naver.com"))) {
 			throw new MemberNotFoundException();
 		}
 		if (!message.hasPassword()) {
