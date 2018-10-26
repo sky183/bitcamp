@@ -61,6 +61,7 @@ td {
 				<td>비밀번호</td>
 				<td>이름</td>
 				<td colspan="2">사진</td>
+				<td>가입일</td>
 				<td>관리</td>
 			</tr>
 			<tbody id="tbody">
@@ -75,7 +76,7 @@ td {
 
 	$(document).ready(function() {
 		/* 기본 뷰타입으로 불러온다. */
-		$('.memList').load('memberList/viewType'); 
+	 	$('.memList').load('memberList/viewType');  
 		$('#viewType').change(function() {
 			if ($(this).val() == 'viewType') {}
 			if ($(this).val() == 'HTML') {
@@ -88,8 +89,8 @@ td {
 				        alert("Error!");
 				    },
 					success : function(data) {
-						$('#type, #tbody').empty();
-						$('#tbody').append(data);
+						$('#type, .memList').empty();
+						$('.memList').append(data);
 					}
 				});
 			}
@@ -107,6 +108,7 @@ td {
 								 value.userPhoto + '</td>' +
 								'<td id="memberPhoto" style="' +
 								'background-image: url(\'' + '<%=request.getContextPath()%>' + '/uploadfile/userphoto/' + value.userPhoto + '\');"></td><td>' +
+								value.regDate + '</td><td>' +
 								'<a	href="' + '<%=request.getContextPath()%>' + '/memberModify/'+ value.userId + '">수정</a>' +
 								'<a	href="' + '<%=request.getContextPath()%>' + '/memberDelete/'+ value.userId +'/'+ value.userPhoto +'">삭제</a></td>' + 
 								'<tr>' 
@@ -129,7 +131,7 @@ td {
 								var password = $(this).find('password').text().trim()
 								var username = $(this).find('username').text().trim()
 								var userphoto = $(this).find('userphoto').text().trim()
-								
+								var regdate = $(this).find('regdate').text().trim()
 								$('#tbody').append(
 									'<tr>' + 
 									'<td>' + userid + '</td><td>' +
@@ -138,6 +140,7 @@ td {
 									userphoto + '</td>' +
 									'<td id="memberPhoto" style="' +
 									'background-image: url(\'' + '<%=request.getContextPath()%>' + '/uploadfile/userphoto/' + userphoto + '\');"></td><td>' +
+									regdate + '</td><td>' +
 									'<a	href="' + '<%=request.getContextPath()%>' + '/memberModify/'+ userid + '">수정</a>' +
 									'<a	href="' + '<%=request.getContextPath()%>' + '/memberDelete/'+ userid +'/'+ userphoto +'">삭제</a></td>' + 
 									'<tr>' 

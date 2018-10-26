@@ -19,6 +19,9 @@
 	<userphoto>
 	${member.userPhoto}
 	</userphoto>
+	<regdate>
+	${member.regDate}
+	</regdate>
 </member>
 </c:forEach>
 </members>

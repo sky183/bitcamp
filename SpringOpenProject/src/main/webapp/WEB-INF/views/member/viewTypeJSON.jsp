@@ -7,7 +7,7 @@
 [
 <c:forEach var="member" items="${members}" varStatus="status">
 {"userId":"${member.userId}","password":"${member.password}",
-"userName":"${member.userName}","userPhoto":"${member.userPhoto}"<%-- ,"REGDATE":"${i.REGDATE}" --%>}
+"userName":"${member.userName}","userPhoto":"${member.userPhoto}" ,"regdate":"${member.regDate}"}
 <c:if test="${status.last==false}">
 ,
 </c:if>
