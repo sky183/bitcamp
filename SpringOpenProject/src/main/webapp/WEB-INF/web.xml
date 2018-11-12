@@ -37,4 +37,10 @@
     <filter-name>encodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  	<!-- use profile -->
+	<context-param>
+		<param-name>spring.profiles.active</param-name>
+		<param-value>local</param-value>
+		<!-- <param-value>local, dev</param-value> -->
+	</context-param>
 </web-app>

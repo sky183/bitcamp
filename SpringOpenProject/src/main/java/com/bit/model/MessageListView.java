@@ -25,7 +25,10 @@ public class MessageListView {
 		calculatePageTotalCount();
 
 	}
-
+	
+	//페이지 계산하기 - 메세지 총 갯수가 0이면 페이지 총 갯수도 0이다.
+	//메세지 총 갯수가 0이 아니면 메세지 페이지 총 갯수는 메세지 총 갯수 / 10이다.
+	//여기서 메세지 총 갯수를 10으로 나눈 나머지가 0보다 크면 페이지 총 갯수에 하나 더 추가해준다.
 	private void calculatePageTotalCount() {
 		if (messageTotalCount == 0) {
 			pageTotalCount = 0;

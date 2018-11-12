@@ -29,10 +29,11 @@ public class MemberRegService {
 		String imgName = "";
 
 		// 물리적 저장 경로
-		String uploadUri = "/uploadfile/userphoto";
+//		String uploadUri = "/uploadfile/userphoto";
 
 		// uploadUri 경로의 시스템 경로
-		String dir = request.getSession().getServletContext().getRealPath(uploadUri);
+//		String dir = request.getSession().getServletContext().getRealPath(uploadUri);
+		String dir = "C:/OpenProject";
 
 		if (!memberInfo.getPhotoFile().isEmpty()) {
 

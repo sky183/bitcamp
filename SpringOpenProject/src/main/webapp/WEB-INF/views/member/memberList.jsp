@@ -107,7 +107,8 @@ td {
 								 value.userName + '</td><td>' +
 								 value.userPhoto + '</td>' +
 								'<td id="memberPhoto" style="' +
-								'background-image: url(\'' + '<%=request.getContextPath()%>' + '/uploadfile/userphoto/' + value.userPhoto + '\');"></td><td>' +
+								<%-- 'background-image: url(\'' + '<%=request.getContextPath()%>' + '/uploadfile/userphoto/' + value.userPhoto + '\');"></td><td>' + --%>
+								'background-image: url(\'' + '/op/photo/' + value.userPhoto + '\');"></td><td>' +
 								value.regDate + '</td><td>' +
 								'<a	href="' + '<%=request.getContextPath()%>' + '/memberModify/'+ value.userId + '">수정</a>' +
 								'<a	href="' + '<%=request.getContextPath()%>' + '/memberDelete/'+ value.userId +'/'+ value.userPhoto +'">삭제</a></td>' + 

@@ -4,5 +4,19 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+	<beans profile="local">   
+		<bean id="ProfileCls" class="com.bit.model.ProfileCls">
+			<property name="rootPath" value="C:/home/profile"/>
+		</bean>
+	</beans>
+	<beans profile="dev">   
+		<bean id="ProfileCls" class="com.bit.model.ProfileCls">
+			<property name="rootPath" value="/home/dev"/>
+		</bean>
+	</beans>
+	<beans profile="production">   
+		<bean id="ProfileCls" class="com.bit.model.ProfileCls">
+			<property name="rootPath" value="/home/release"/>
+		</bean>
+	</beans>
 </beans>
