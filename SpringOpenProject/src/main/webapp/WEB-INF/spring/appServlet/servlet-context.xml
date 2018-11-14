@@ -21,6 +21,7 @@
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/css/**" location="/css/" />
 	<resources mapping="/uploadfile/**" location="/uploadfile/" />
+	<resources mapping="/photo/**" location="/photo/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->
@@ -41,14 +42,20 @@
 	<!-- 데이터 소스 -->
 	<beans:bean id="dataSource"
 		class="com.mchange.v2.c3p0.ComboPooledDataSource">
-		<!-- <beans:property name="driverClass"
-			value="oracle.jdbc.driver.OracleDriver" /> -->
+<!-- 		 <beans:property name="driverClass"
+			value="oracle.jdbc.driver.OracleDriver" /> 
 		<beans:property name="driverClass" value="com.mysql.jdbc.Driver" />
-	<!-- 	<beans:property name="jdbcUrl"
-			value="jdbc:oracle:thin:@Localhost:1522:orcl" /> -->
-		<beans:property name="jdbcUrl" value="jdbc:mysql://localhost/openproject?characterEncoding=utf8"/>
+		<beans:property name="jdbcUrl"
+			value="jdbc:oracle:thin:@Localhost:1522:orcl" /> 
+		<beans:property name="jdbcUrl" value="jdbc:mysql://sb-mall.cu5prbfi9jue.ap-northeast-2.rds.amazonaws.com/SB_Master?characterEncoding=utf8"/>
 		<beans:property name="user" value="scott" />
-		<beans:property name="password" value="tiger" />
+		<beans:property name="password" value="tiger" /> -->
+		<beans:property name="driverClass"
+			value="com.mysql.jdbc.Driver" />
+		<beans:property name="jdbcUrl"
+			value="jdbc:mysql://sb-mall.cu5prbfi9jue.ap-northeast-2.rds.amazonaws.com/openproject?characterEncoding=utf8" />
+		<beans:property name="user" value="SB_Master" />
+		<beans:property name="password" value="qpqp1010-" />
 	</beans:bean>
 
 	<beans:bean id="jdbcTemplate"

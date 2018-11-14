@@ -33,7 +33,10 @@ public class MemberRegService {
 
 		// uploadUri 경로의 시스템 경로
 //		String dir = request.getSession().getServletContext().getRealPath(uploadUri);
-		String dir = "C:/OpenProject";
+//		String dir = "C:/OpenProject";
+		String dir = "/upload/file/photo";
+//		String dir = "/home/ec2-user/file/photo";
+		
 
 		if (!memberInfo.getPhotoFile().isEmpty()) {
 

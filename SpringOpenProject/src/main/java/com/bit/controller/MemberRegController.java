@@ -51,6 +51,8 @@ public class MemberRegController {
 			modelAndView.addObject("error", "이미 등록된 아이디 입니다.");
 			session.setComplete();
 			modelAndView.setViewName("member/memberRegForm");
+//			System.out.println(e.getMessage());
+			e.printStackTrace();
 		} 
 		return modelAndView;
 	}

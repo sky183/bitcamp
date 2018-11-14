@@ -108,7 +108,7 @@ td {
 								 value.userPhoto + '</td>' +
 								'<td id="memberPhoto" style="' +
 								<%-- 'background-image: url(\'' + '<%=request.getContextPath()%>' + '/uploadfile/userphoto/' + value.userPhoto + '\');"></td><td>' + --%>
-								'background-image: url(\'' + '/op/photo/' + value.userPhoto + '\');"></td><td>' +
+								'background-image: url(\'' + '<%=request.getContextPath()%>' + '/photo/' + value.userPhoto + '\');"></td><td>' +
 								value.regDate + '</td><td>' +
 								'<a	href="' + '<%=request.getContextPath()%>' + '/memberModify/'+ value.userId + '">수정</a>' +
 								'<a	href="' + '<%=request.getContextPath()%>' + '/memberDelete/'+ value.userId +'/'+ value.userPhoto +'">삭제</a></td>' + 
@@ -140,7 +140,8 @@ td {
 									username + '</td><td>' +
 									userphoto + '</td>' +
 									'<td id="memberPhoto" style="' +
-									'background-image: url(\'' + '<%=request.getContextPath()%>' + '/uploadfile/userphoto/' + userphoto + '\');"></td><td>' +
+									'background-image: url(\'' + 'C:/OpenProject/' + userphoto + '\');"></td><td>' +
+									<%-- 'background-image: url(\'' + '<%=request.getContextPath()%>' + '/uploadfile/userphoto/' + userphoto + '\');"></td><td>' + --%>
 									regdate + '</td><td>' +
 									'<a	href="' + '<%=request.getContextPath()%>' + '/memberModify/'+ userid + '">수정</a>' +
 									'<a	href="' + '<%=request.getContextPath()%>' + '/memberDelete/'+ userid +'/'+ userphoto +'">삭제</a></td>' + 

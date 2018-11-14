@@ -19,7 +19,8 @@
 		<td>${member.userName}</td>
 		<td>${member.userPhoto}</td>
 		<td id="memberPhoto"
-			style="background-image: url('<%=request.getContextPath()%>/uploadfile/userphoto/${member.userPhoto}');"></td>
+			<%-- style="background-image: url('<%=request.getContextPath()%>/uploadfile/userphoto/${member.userPhoto}');"></td> --%>
+			style="background-image: url('<%=request.getContextPath()%>/photo/${member.userPhoto}');"></td>
 		<td>${member.regDate}</td>
 		<td><a
 			href="<%=request.getContextPath()%>/memberModify/${member.userId}">수정</a>

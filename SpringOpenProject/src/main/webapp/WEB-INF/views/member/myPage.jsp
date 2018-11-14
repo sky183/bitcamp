@@ -14,7 +14,7 @@ h2, td {
 }
 
 #memberPhoto {
-	background-image: url('<%=request.getContextPath()%>/uploadfile/userphoto/${memberInfo.userPhoto}');
+	background-image: url('<%=request.getContextPath()%>/photo/${memberInfo.userPhoto}');
 	background-size: 100%;
 	width: 150px;
 	height: 150px;
