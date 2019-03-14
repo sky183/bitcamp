@@ -29,4 +29,13 @@ public class BoardService {
 
 		return boardList;
 	}
+	
+	// 게시글 작성
+	@Transactional
+	public void boardWrite(BoardVO boardVO) throws Exception {
+		
+		dao = sqlSessionTemplate.getMapper(BoardDao.class);
+		dao.insertBoard(boardVO);
+		
+	}
 }

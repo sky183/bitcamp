@@ -12,6 +12,12 @@
  	<select id="boardList" resultType="com.sb.board.model.BoardVO">
  		select * from board order by num desc
  	</select>
+ 	
+ 	<insert id="insertBoard" parameterType="com.sb.board.model.BoardVO">
+<!--     useGeneratedKeys="true" keyProperty="boardSeq"> -->
+    	insert into board (title,text,name)
+		values (#{title}, #{text}, #{name})
+    </insert>
 
 	
 </mapper>
