@@ -16,12 +16,12 @@ public interface BoardDao {
     // 게시글 등록
 	public void insertBoard(BoardVO boardVO) throws Exception;
 
-//	// 게시글 조회
-//	public BoardVO boardVO(int boardNum) throws Exception;
-//
-//	// 게시글 조회수 증가
-//	public void countView(int boardNum) throws Exception;
-//
+	// 게시글 조회
+	public BoardVO selectBoard(int num) throws Exception;
+
+	// 게시글 조회수 증가
+	public void countView(int num) throws Exception;
+
 
 
 }

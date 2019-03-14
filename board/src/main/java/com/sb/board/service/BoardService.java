@@ -38,4 +38,15 @@ public class BoardService {
 		dao.insertBoard(boardVO);
 		
 	}
+	
+	// 게시글 조회
+	@Transactional
+	public BoardVO selectBoard(int num) throws Exception {
+
+		BoardVO boardVO = new BoardVO();
+		dao = sqlSessionTemplate.getMapper(BoardDao.class);
+		boardVO = dao.selectBoard(num);
+
+		return boardVO;
+	}
 }

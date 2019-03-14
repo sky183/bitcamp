@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
  <style type="text/css">
@@ -51,11 +52,12 @@
 					</td>
 					<td class="td2">
 						<input type="text" name="text" class="input2">
+						<input type="hidden" name="password" id="password">
 					</td>
 				</tr>
 			</table>
 			<div class="right">
-				<button type="button" onClick="location.href='password'">비밀번호 설정</button>
+				<button type="button" onClick="setPw()">비밀번호 설정</button>
 			</div>
 			<div class="cen">
 				<button type="submit">저장</button>
@@ -65,5 +67,24 @@
 		
 
 	</div>
+	<script type="text/javascript">
+	
+		function setPw(){
+			
+			var popupX = (window.screen.width / 2) - (380 / 2);
+
+        	var popupY= (window.screen.height / 2) - (80 / 2);
+        	
+            openWin = window.open("setPw",
+                    "childForm", "status=no, width=380, height=80, left="+ popupX 
+                    + ", top="+ popupY + ", screenX="+ popupX + ", screenY= "+ popupY + ", location = no, resizable = no, scrollbars = no");
+			
+		}
+		
+		function error(){
+			alert('비밀번호가 서로 일치하지 않습니다!');			
+		}
+	</script>
+	
 </body>
 </html>
