@@ -35,7 +35,12 @@ public class BoardService {
 	public void boardWrite(BoardVO boardVO) throws Exception {
 		
 		dao = sqlSessionTemplate.getMapper(BoardDao.class);
-		dao.insertBoard(boardVO);
+		
+		if (boardVO.getPassword() == null || boardVO.getPassword().equals("")) {
+			dao.insertBoard2(boardVO);
+		} else {
+			dao.insertBoard(boardVO);
+		}
 		
 	}
 	
@@ -49,4 +54,15 @@ public class BoardService {
 
 		return boardVO;
 	}
+	
+	// 비번 업데이트
+	@Transactional
+	public void updatePw(BoardVO boardVO) throws Exception {
+		
+		dao = sqlSessionTemplate.getMapper(BoardDao.class);
+		
+		dao.updatePw(boardVO);
+		
+	}
+	
 }

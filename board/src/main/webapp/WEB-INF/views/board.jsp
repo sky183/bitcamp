@@ -78,8 +78,8 @@ td{
         
         var num;
         
-        function al(){
-        	alert('얼럿성공');
+        function error(){
+        	alert('비밀번호가 일치하지 않습니다!');
         }
         
     
@@ -113,7 +113,6 @@ td{
 
         
    </script>
-    전달할 값 : <input type="text" id="pInput"> <input type="button" value="전달" onclick="setChildText()">
 
 
 	

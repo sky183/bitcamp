@@ -15,12 +15,18 @@ public interface BoardDao {
 	
     // 게시글 등록
 	public void insertBoard(BoardVO boardVO) throws Exception;
+	
+	// 게시글 등록 - 비번없이 등록
+	public void insertBoard2(BoardVO boardVO) throws Exception;
 
 	// 게시글 조회
 	public BoardVO selectBoard(int num) throws Exception;
 
 	// 게시글 조회수 증가
 	public void countView(int num) throws Exception;
+	
+	// 게시글 비번 업데이트
+	public void updatePw(BoardVO boardVO) throws Exception;
 
 
 

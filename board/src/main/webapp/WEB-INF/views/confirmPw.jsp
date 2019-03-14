@@ -8,9 +8,23 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	function setParentText(){
-		opener.document.getElementById("pInput").value = opener.num;
-		opener.al();
-		window.close();
+		
+    	$.ajax({
+			url : '<%=request.getContextPath()%>/passwordConfirm?num=' + opener.num + '&password=' + $('#password').val(),
+			method : 'GET',
+			error : function(error) {
+		        alert("Error!");
+		    },
+			success : function(data) {
+				if (data) {
+					opener.location.href = "<%=request.getContextPath()%>/view/" + opener.num;
+				} else {
+					opener.error();
+				}
+				window.close();
+			}
+		});
+		
 	}
 </script>
 </head>
@@ -18,7 +32,7 @@
 	<table>
 		<tr>
 			<td>비밀번호</td>
-			<td><input type="password"></td>
+			<td><input type="password" id="password"></td>
 			<td><button type="button" id="confirm" onclick="setParentText()">확인</button></td>
 		</tr>
 	</table>

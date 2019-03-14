@@ -43,7 +43,6 @@ td{
 </head>
 <body>
 <div id="wrapper">
-
 	<table>
 		<thead>
 			<tr>
@@ -55,7 +54,7 @@ td{
 		</thead>
 		<tbody>
 			<tr>
-				<td class="td1">${boardVO.num}</td>
+				<td class="td1" id="num" name="${boardVO.num}">${boardVO.num}</td>
 				<td class="td2">${boardVO.title}</td>
 				<td class="td3">${boardVO.name}</td>
 				<td class="td4">${boardVO.viewcount}</td>
@@ -67,10 +66,31 @@ td{
 		</tbody>
 	</table>
 	<div class="left">
-		<button type="button" onClick="location.href='updatepw'">비밀번호 설정</button>
+		<button type="button" onclick="updatePw()">비밀번호 설정</button>
 	</div>
 	
 </div>	
 </body>
+
+<script type="text/javascript">
+
+	var num = $('#num').attr('name');
+	
+	function error(){
+		alert('비밀번호가 일치하지 않습니다!');
+	}
+
+	function updatePw(){
+
+		var popupX = (window.screen.width / 2) - (380 / 2);
+
+    	var popupY= (window.screen.height / 2) - (80 / 2);
+    	
+    	openWin = window.open("<%=request.getContextPath()%>/updatePw",
+                "childForm", "status=no, width=380, height=80, left="+ popupX 
+                + ", top="+ popupY + ", screenX="+ popupX + ", screenY= "+ popupY + ", location = no, resizable = no, scrollbars = no");
+		
+	};
+</script>
 
 </html>

@@ -22,6 +22,17 @@
     	insert into board (title,text,name, password)
 		values (#{title}, #{text}, #{name}, #{password})
     </insert>
+    
+ 	<insert id="insertBoard2" parameterType="com.sb.board.model.BoardVO">
+<!--     useGeneratedKeys="true" keyProperty="boardSeq"> -->
+    	insert into board (title,text,name)
+		values (#{title}, #{text}, #{name})
+    </insert>
+    
+     	<!-- Update -->
+ 	<update id="updatePw" parameterType="com.sb.board.model.BoardVO">
+ 		update board set password=#{password} where num = #{num}
+ 	</update>
 
 	
 </mapper>

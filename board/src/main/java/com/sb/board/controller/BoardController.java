@@ -26,7 +26,6 @@ public class BoardController {
 	//페이지 이동
 	@RequestMapping(value = "/{page}", method = RequestMethod.GET)
 	public String errorController(@PathVariable("page") String page) throws Exception {
-
 		return page;
 
 	}
@@ -93,4 +92,36 @@ public class BoardController {
 		return false;
 		
 	}
+	//비번 유효성 확인
+	@RequestMapping(value = "/passwordConfirm", method = RequestMethod.GET)
+	@ResponseBody
+	public boolean confirmPw(@RequestParam("num") int num, @RequestParam("password") String password) throws Exception {
+		
+		BoardVO boardVO = service.selectBoard(num);
+		
+		if (boardVO.getPassword().equals(password)) {
+			return true;
+		}
+		
+		return false;
+		
+	}
+	
+	//비번업뎃
+	@RequestMapping(value = "/upPw", method = RequestMethod.GET)
+	@ResponseBody
+	public String updatePw(@RequestParam("num") int num, @RequestParam("password") String password) throws Exception {
+		
+		BoardVO boardVO = new BoardVO();
+		
+		boardVO.setNum(num);
+		boardVO.setPassword(password);
+		
+		service.updatePw(boardVO);
+		
+		return "비밀번호 등록 완료!";
+		
+	}
+	
+	
 }
