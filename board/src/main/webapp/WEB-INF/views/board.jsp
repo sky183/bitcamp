@@ -56,7 +56,7 @@ td{
 		<c:forEach items="${boardList}" var="boardList">
 			<tr>
 				<td class="td1">${boardList.num}</td>
-				<td><a href="<%=request.getContextPath()%>/" >${boardList.title}</a></td>
+				<td><a href="<%=request.getContextPath()%>/view/${boardList.num}">${boardList.title}</a></td>
 				<td class="td3">${boardList.name}</td>
 				<td class="td4">${boardList.viewcount}</td>
 				<td style="display: none;">${boardList.password}</td>
