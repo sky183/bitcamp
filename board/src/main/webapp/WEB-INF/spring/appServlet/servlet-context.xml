@@ -39,9 +39,9 @@
 	<beans:bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 
 		<beans:property name="driverClass" value="net.sf.log4jdbc.DriverSpy"/>
-		<beans:property name="jdbcUrl" value="jdbc:mysql://localhost/board?characterEncoding=utf8" />
+		<beans:property name="jdbcUrl" value="jdbc:mysql://localhost/nuriapp?characterEncoding=utf8" />
 		<beans:property name="user" value="root" />
-		<beans:property name="password" value="qpqp1010" />
+		<beans:property name="password" value="nuriapp" />
 	</beans:bean>
 	
 

@@ -6,6 +6,12 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	#save{
+		width: 80px;
+		height: 60px;
+	}
+</style>
 <script type="text/javascript">
 
 	function setParentText(){

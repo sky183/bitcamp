@@ -73,10 +73,10 @@
 			
 			var popupX = (window.screen.width / 2) - (380 / 2);
 
-        	var popupY= (window.screen.height / 2) - (80 / 2);
+        	var popupY= (window.screen.height / 2) - (90 / 2);
         	
             openWin = window.open("setPw",
-                    "childForm", "status=no, width=380, height=80, left="+ popupX 
+                    "childForm", "status=no, width=380, height=90, left="+ popupX 
                     + ", top="+ popupY + ", screenX="+ popupX + ", screenY= "+ popupY + ", location = no, resizable = no, scrollbars = no");
 			
 		}

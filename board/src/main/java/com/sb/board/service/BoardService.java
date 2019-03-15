@@ -29,40 +29,52 @@ public class BoardService {
 
 		return boardList;
 	}
-	
+
 	// 게시글 작성
 	@Transactional
 	public void boardWrite(BoardVO boardVO) throws Exception {
-		
+
 		dao = sqlSessionTemplate.getMapper(BoardDao.class);
-		
+
 		if (boardVO.getPassword() == null || boardVO.getPassword().equals("")) {
 			dao.insertBoard2(boardVO);
 		} else {
 			dao.insertBoard(boardVO);
 		}
-		
+
 	}
-	
+
 	// 게시글 조회
 	@Transactional
 	public BoardVO selectBoard(int num) throws Exception {
 
 		BoardVO boardVO = new BoardVO();
+		
 		dao = sqlSessionTemplate.getMapper(BoardDao.class);
+		
 		boardVO = dao.selectBoard(num);
 
 		return boardVO;
 	}
 	
-	// 비번 업데이트
+	// 게시글 조회수 올리기
 	@Transactional
-	public void updatePw(BoardVO boardVO) throws Exception {
+	public void countView(int num) throws Exception {
 		
 		dao = sqlSessionTemplate.getMapper(BoardDao.class);
 		
-		dao.updatePw(boardVO);
+		dao.countView(num);
 		
 	}
-	
+
+	// 비번 업데이트
+	@Transactional
+	public void updatePw(BoardVO boardVO) throws Exception {
+
+		dao = sqlSessionTemplate.getMapper(BoardDao.class);
+
+		dao.updatePw(boardVO);
+
+	}
+
 }

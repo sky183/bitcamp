@@ -58,7 +58,6 @@ td{
 			<tr>
 				<td class="td1">${boardList.num}</td>
 				<td><a id="${boardList.num}" href="#" onclick="openChild('${boardList.num}')">${boardList.title}</a></td>
-<%-- 				<td><a id="${boardList.num}" href="<%=request.getContextPath()%>/view/${boardList.num}">${boardList.title}</a></td> --%>
 				<td class="td3">${boardList.name}</td>
 				<td class="td4">${boardList.viewcount}</td>
 				<td style="display: none;">${boardList.password}</td>
@@ -97,12 +96,12 @@ td{
 					if (data) {
 						location.href = "<%=request.getContextPath()%>/view/" + num
 					} else {
-						var popupX = (window.screen.width / 2) - (280 / 2);
+						var popupX = (window.screen.width / 2) - (330 / 2);
 
 			        	var popupY= (window.screen.height / 2) - (20 / 2);
 			        	
 			            openWin = window.open("confirmPw?num=" + num,
-			                    "childForm", "status=no, width=280, height=20, left="+ popupX 
+			                    "childForm", "status=no, width=330, height=20, left="+ popupX 
 			                    + ", top="+ popupY + ", screenX="+ popupX + ", screenY= "+ popupY + ", location = no, resizable = no, scrollbars = no");
 					}
 				}

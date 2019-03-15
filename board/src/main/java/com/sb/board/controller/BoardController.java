@@ -70,6 +70,8 @@ public class BoardController {
 		
 		BoardVO boardVO = service.selectBoard(num);
 		
+		service.countView(num);
+		
 		modelAndView.addObject("boardVO", boardVO);
 		
 		return modelAndView;
